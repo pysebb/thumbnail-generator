@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Masthead-->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+        ID: {{ object.id }} <br/>
+        <strong>Status: {{ object.status }} </strong><br/>
+        Video path: {{ object.video }} <br/>
+
+    <video width="320" height="240" controls>
+      <source src="{{ object.video.url }}" type="video/mp4">
+    </video>
+
+    <hr/>
+
+    <form action="{{ request.path }}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group"><button class="btn btn-warning btn-xl" id="sendForm" type="submit">Generate</button></div>
+    </form>
+
+    {% if object.thumbnail  %}
+        Thumbnail threshold: {{ object.threshold }} / limit: {{ object.limit }}
+        <img class="masthead-avatar mb-5" src="{{ object.thumbnail.url }}" alt="" />
+        <hr/>
+    {% endif %}
+
+    </div>
+</header>
+{% endblock %}

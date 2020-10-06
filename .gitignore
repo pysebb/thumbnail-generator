@@ -1,0 +1,17 @@
+secret_key.txt
+*.sql
+*.pyc
+*.swp
+*.db
+.idea/
+*.pid
+.cache
+.cache/
+.DS_Store
+logfile
+*.csv
+*.ipynb
+.ipynb_checkpoints/
+__pycache__
+media/*
+db.sqlite3
